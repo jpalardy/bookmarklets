@@ -1,0 +1,11 @@
+{
+  "name": "bookmarklets",
+  "version": "0.1.0",
+  "description": "A bunch of useful bookmarklets I maintain.",
+  "dependencies": {
+    "bookmarklet": "~0.0.4"
+  },
+  "author": "Jonathan Palardy",
+  "readmeFilename": "README.md",
+  "private": true
+}
