@@ -10,7 +10,7 @@ if (style) {
   d.head.removeChild(style);
 } else {
   style = d.createElement('style');
-  style.innerHTML = ".card .q { font-size: 300% }";
+  style.innerHTML = ".card .text { font-size: 300% }";
   style.id = id;
   d.head.appendChild(style);
 }
