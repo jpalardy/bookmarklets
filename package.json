@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "A bunch of useful bookmarklets I maintain.",
   "dependencies": {
-    "bookmarklet": "~0.0.4"
+    "bookmarklet": "0.0.6"
   },
   "author": "Jonathan Palardy",
   "readmeFilename": "README.md",
