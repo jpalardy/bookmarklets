@@ -1,12 +1,5 @@
-/* global location */
-
-// dp/${ASIN}/
-var match = location.href.match(/dp[/]([^/]{10})[/]/);
-
-if (match) {
-  var asin = match[1];
-  location.href = "http://bp.localhost:2665/jonathan/books?show=" + asin;
-} else {
-  alert("no ASIN found on this page...");
-}
-
+/* global document */
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "https://bookpiles.ca/bookmarklet.js";
+document.body.appendChild(s);
