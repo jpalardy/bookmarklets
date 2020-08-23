@@ -1,5 +1,4 @@
-/* global document */
-var s = document.createElement("script");
+const s = document.createElement("script");
 s.type = "text/javascript";
 s.src = "https://bookpiles.ca/bookmarklet.js";
 document.body.appendChild(s);

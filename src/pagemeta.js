@@ -1,11 +1,12 @@
-(function () {
+/* eslint-disable no-alert */
+(() => {
   if (!navigator.clipboard) {
     alert("clipboard not found!");
     return;
   }
 
   const today = new Date().toISOString().replace(/T.*/, "");
-  const url = location.toString();
+  const url = document.location.toString();
   const title = document.querySelector("title").innerText;
 
   const blob = `

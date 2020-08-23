@@ -1,5 +1,3 @@
-/* global document */
-
 // some unique id, the SHA1 of "toggleRuby"
 const id = "c8f38bbf013e6f254dfe129984188c9a2646b793";
 const d = document;
