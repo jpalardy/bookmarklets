@@ -6,13 +6,13 @@
   }
 
   const today = new Date().toISOString().replace(/T.*/, "");
-  const url = document.location.toString();
   const title = document.querySelector("title").innerText;
+  const url = document.location.toString();
 
   const blob = `
 ${today}
-  ${url}
-    ${title}
+  ${title}
+    ${url}
 `.trim();
 
   const banner = document.createElement("div");
