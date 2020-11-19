@@ -6,7 +6,7 @@
   }
 
   const today = new Date().toISOString().replace(/T.*/, "");
-  const title = document.querySelector("title").innerText;
+  const title = (document.querySelector("title") || {innerText: ""}).innerText.trim();
   const url = document.location.toString();
 
   const blob = `
