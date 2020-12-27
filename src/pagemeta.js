@@ -19,7 +19,6 @@ ${today}
   banner.style = `
   position: fixed;
   bottom: 0;
-  left: 0;
   padding: 20px;
   width: 100%;
   background: #bbb;
@@ -27,6 +26,7 @@ ${today}
   font-family: monospace;
   font-size: 16px;
   z-index: 9999;
+  text-align: left;
 `;
   banner.innerText = blob;
   banner.onclick = () => {
