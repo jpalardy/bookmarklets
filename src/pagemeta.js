@@ -5,7 +5,8 @@
     return;
   }
 
-  const today = new Date().toISOString().replace(/T.*/, "");
+  const now = new Date();
+  const today = new Date(now - now.getTimezoneOffset() * 60 * 1000).toISOString().replace(/T.*/, "");
   const title = (document.querySelector("title") || {innerText: ""}).innerText.trim().replace(/\s+/g, " ");
   const url = document.location.toString();
 
