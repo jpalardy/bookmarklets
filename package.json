@@ -3,14 +3,9 @@
   "version": "0.1.0",
   "description": "A bunch of useful bookmarklets I maintain.",
   "dependencies": {
-    "bookmarklet": "1.0.4"
+    "bookmarklet": "3.0.0"
   },
   "author": "Jonathan Palardy",
   "readmeFilename": "README.md",
-  "private": true,
-  "devDependencies": {
-    "eslint": "7.10.0",
-    "eslint-config-airbnb-base": "14.2.0",
-    "eslint-plugin-import": "2.22.1"
-  }
+  "private": true
 }
