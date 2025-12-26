@@ -7,7 +7,7 @@
       .replace(/[一二三四五六七八九十]/g, "");
     // 1 kanji or 0 kanjis (hiragana, katakana only)
     if (onlyKanjis.length <= 1) {
-      card.style.boxShadow = "0 0 7px red";
+      card.style.color = "#0D9FD9";
     }
   });
 })();
