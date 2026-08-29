@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "A bunch of useful bookmarklets I maintain.",
   "dependencies": {
-    "bookmarklet": "3.0.0"
+    "bookmarklet": "3.0.0",
+    "typescript": "^6.0.3",
+    "typescript-language-server": "^6.0.0"
   },
   "author": "Jonathan Palardy",
   "readmeFilename": "README.md",
