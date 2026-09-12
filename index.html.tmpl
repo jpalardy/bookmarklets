@@ -15,20 +15,29 @@
         color: #777;
         font-weight: bold;
       }
+      .bookmarklets {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        column-gap: 1.5rem;
+        row-gap: 0.5rem;
+      }
+      .bookmarklets dd {
+        margin: 0;
+      }
     </style>
   </head>
   <body>
     <h2>Bookmarklets</h2>
     <a style="position: absolute; top: 15px; right: 15px" href="https://github.com/jpalardy/bookmarklets">source</a>
 
-    <ul>
-      <li><a href="javascript:#code">pagemeta</a> — Grab page's title and url, dated today</li>
-      <li><a href="javascript:#code">toggle ruby</a> — Toggle's the visibility of &lt;rt&gt; tags.</li>
-      <li><a href="javascript:#code">amazon-ca</a> — Switch amazon.com links to amazon.ca.</li>
-      <li><a href="javascript:#code">highlight-yellow</a> — Highlight all links.</li>
-      <li><a href="javascript:#code">keasy</a> — Highlight easier kanji memora cards.</li>
-      <li><a href="javascript:#code">kill-sticky</a> — Highlight easier kanji memora cards.</li>
-      <li><a href="chrome://crash">crash!</a> — Crash a Chrome tab: useful when things get out of hands.</li>
-    </ul>
+    <dl class="bookmarklets">
+      <dt><a href="javascript:#code">pagemeta</a></dt><dd>Grab page's title and url, dated today</dd></dt>
+      <dt><a href="javascript:#code">toggle ruby</a></dt><dd>Toggle's the visibility of &lt;rt&gt; tags.</dd></dt>
+      <dt><a href="javascript:#code">amazon-ca</a></dt><dd>Switch amazon.com links to amazon.ca.</dd></dt>
+      <dt><a href="javascript:#code">highlight-yellow</a></dt><dd>Highlight all links.</dd></dt>
+      <dt><a href="javascript:#code">keasy</a></dt><dd>Highlight easier kanji memora cards.</dd></dt>
+      <dt><a href="javascript:#code">kill-sticky</a></dt><dd>Remove sticky elements and restore scrolling to web pages.</dd></dt>
+      <dt><a href="chrome://crash">crash!</a></dt><dd>Crash a Chrome tab: useful when things get out of hands.</dd></dt>
+    </dl>
   </body>
 </html>
