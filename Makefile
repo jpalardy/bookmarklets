@@ -6,5 +6,5 @@ add-to-bookpiles:
 	npm exec bookmarklet src/add-to-bookpiles.js
 
 watch:
-	printf "%s\n" index.html src/* | entr ding make
+	printf "%s\n" index.html* src/* | entr ding make
 
