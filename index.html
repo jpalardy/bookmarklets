@@ -2,31 +2,24 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link
-      rel="stylesheet"
-      href="/css/base.css"
-      type="text/css"
-      media="screen, projection"
-    />
+    <link rel="stylesheet" href="/css/base.css" type="text/css" media="screen, projection" />
     <title>Bookmarklets</title>
+    <style>
+      body {
+        padding-left: 20px;
+        font-family: sans-serif;
+        font-size: 90%;
+        color: #555;
+      }
+      a {
+        color: #777;
+        font-weight: bold;
+      }
+    </style>
   </head>
-  <body style="padding-left: 20px">
-    <h2>Jonathan's Bookmarklets</h2>
-
-    <p>
-      Original code found in my
-      <a href="https://github.com/jpalardy/bookmarklets">bookmarklets</a>
-      project on github.
-    </p>
-
-    <p>To "install", drag a bookmarklet link into your browser toolbar.</p>
-    <p>
-      To run, click on the bookmark while on the webpages it is indented to run
-      on.
-    </p>
-    <p>To "uninstall", delete the bookmark.</p>
-
+  <body>
     <h2>Bookmarklets</h2>
+    <a style="position: absolute; top: 15px; right: 15px" href="https://github.com/jpalardy/bookmarklets">source</a>
 
     <ul>
       <li><a href="javascript:javascript:(function()%7B(()%3D%3E%7Blet%20e%3Ddocument.querySelector(%22.pagemeta%22)%3Bif(e)return%20void%20e.showPopover()%3Bconst%20t%3Ddocument.createElement(%22style%22)%3Bt.textContent%3D%22%5Cn%20%20%20%20.pagemeta%20%7B%5Cn%20%20%20%20%20%20all%3A%20revert%3B%5Cn%20%20%20%20%20%20font-family%3A%20monospace%3B%5Cn%20%20%20%20%20%20padding%3A%2010px%3B%5Cn%20%20%20%20%20%20min-width%3A%20400px%3B%5Cn%20%20%20%20%20%20width%3A%20fit-content%3B%5Cn%20%20%20%20%20%20max-width%3A%2070vw%3B%5Cn%20%20%20%20%20%20overflow%3A%20auto%3B%5Cn%20%20%20%20%20%20border-radius%3A%207px%3B%5Cn%20%20%20%20%7D%5Cn%20%20%20%20%5Bpopover%5D%3A%3Abackdrop%20%7B%5Cn%20%20%20%20%20%20background%3A%20rgb(0%200%200%20%2F%200.8)%3B%5Cn%20%20%20%20%7D%22%2Cdocument.head.appendChild(t)%3Blet%20n%3D(document.querySelector(%22title%22)%7C%7C%7BinnerText%3A%22%22%7D).innerText.trim().replace(%2F%5Cs%2B%2Fg%2C%22%20%22)%3Bconst%20o%3Ddocument.location.toString()%3Be%3Ddocument.createElement(%22div%22)%2Ce.popover%3D%22auto%22%2Ce.className%3D%22pagemeta%22%3Bconst%20a%3Ddocument.createElement(%22div%22)%3Ba.innerText%3D%60%24%7Bn%7D%5Cn%24%7Bo%7D%60%2Ce.appendChild(a)%2Cnavigator.clipboard%26%26(a.style.marginBottom%3D%225px%22%2C%5B%7Btext%3A%22copy%20text%22%2Cpayload%3A%60%24%7Bn%7D%5Cn%20%20%24%7Bo%7D%60%7D%2C%7Btext%3A%22copy%20markdown%22%2Cpayload%3A%60%5B%24%7Bn%7D%5D(%24%7Bo%7D)%60%7D%5D.forEach((t%3D%3E%7Bconst%20n%3Ddocument.createElement(%22button%22)%3Bn.textContent%3Dt.text%2Cn.style.marginRight%3D%225px%22%2Cn.onclick%3D()%3D%3E%7Bnavigator.clipboard.writeText(t.payload)%7D%2Ce.appendChild(n)%7D)))%2Cdocument.body.appendChild(e)%2Ce.showPopover()%7D)()%3B%7D)()">pagemeta</a> — Grab page's title and url, dated today</li>
