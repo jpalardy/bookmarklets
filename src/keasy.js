@@ -11,18 +11,19 @@
       highlight(span, "red");
       return;
     }
-    // one kanji (only)
-    if (span.innerText.length == 1) {
+    let text = span.innerText;
+    // 1 kanji, after tilde trim
+    text = text.replace(/〜/g, "");
+    if (text.length == 1) {
       highlight(span, "cyan");
       return;
     }
-    // one kanji (after trim)
-    const onlyKanjis = span.innerText
+    // 0-1 kanjis, after serious trim (hiragana, katakana only)
+    text = text
       .replace(/[^\p{Script=Han}]/gu, "")
       .replace(/々/g, "")
       .replace(/[一二三四五六七八九十]/g, "");
-    // 1 kanji or 0 kanjis (hiragana, katakana only)
-    if (onlyKanjis.length <= 1) {
+    if (text.length <= 1) {
       highlight(span, "yellow");
       return;
     }
