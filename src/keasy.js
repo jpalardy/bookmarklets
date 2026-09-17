@@ -1,4 +1,8 @@
 (() => {
+  function underline(elem, color) {
+    elem.style.textDecoration = `${color} wavy underline 1.5px`;
+    elem.style.textUnderlineOffset = "5px";
+  }
   function highlight(elem, color) {
     elem.style.textShadow = `0 0 20px ${color}`;
   }
@@ -8,8 +12,7 @@
     const preview = card.querySelector(".preview");
     const daysAgo = Number(preview.innerHTML.split(" ")[0]);
     if (daysAgo >= 60) {
-      highlight(span, "red");
-      return;
+      underline(span, "red");
     }
     let text = span.innerText;
     // 1 kanji, after tilde trim
@@ -24,7 +27,7 @@
       .replace(/々/g, "")
       .replace(/[一二三四五六七八九十]/g, "");
     if (text.length <= 1) {
-      highlight(span, "yellow");
+      highlight(span, "purple");
       return;
     }
   });
