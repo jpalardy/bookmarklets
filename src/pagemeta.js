@@ -1,28 +1,17 @@
 (() => {
-  let pagemeta = document.querySelector('.pagemeta');
-  if (pagemeta) {
-    pagemeta.showPopover();
-    return;
-  }
+  document.getElementById("pagemeta")?.remove();
+  const title = document.title.trim().replace(/\s+/g, " ");
+  const url = location.href;
 
-  const escapeHtml = (str) => {
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-  };
-
-  const title = (document.querySelector("title") || { innerText: "" }).innerText.trim().replace(/\s+/g, " ");
-  const url = document.location.toString();
-
-  pagemeta = document.createElement("div");
+  const pagemeta = document.createElement("div");
   pagemeta.popover = "auto";
   pagemeta.id = "pagemeta";
+  pagemeta.style = "margin: auto; background: white; padding: 10px";
   const shadow = pagemeta.attachShadow({ mode: 'open' });
-  let innerHTML = `
-  <style>
+  const sheet = new CSSStyleSheet();
+  sheet.replaceSync(`
     :host {
       all: revert;
-      padding: 10px;
       min-width: 400px;
       width: fit-content;
       max-width: 70vw;
@@ -30,25 +19,45 @@
       overflow: auto;
     }
     :host::backdrop { background: rgb(0 0 0 / 0.8); }
-  </style>
-  <div style="font-family: monospace; font-size: 14px;">
-    ${escapeHtml(title)}<br/>${escapeHtml(url)}
-  </div>
-  `;
-  if (navigator.clipboard) {
-    innerHTML += `
-      <div style="margin-top: 10px;">
-        <button>copy text</button> <button>copy markdown</button>
-      </div>`;
-  }
-  shadow.innerHTML = innerHTML;
+    .info { font: 14px monospace; }
+    .actions { margin-top: 10px; display: flex; gap: 6px; }
+  `);
+  shadow.adoptedStyleSheets = [sheet];
+
+  const info = document.createElement('div');
+  info.className = 'info';
+  info.append(title, document.createElement('br'), url);
+  shadow.append(info);
 
   if (navigator.clipboard) {
-    const [copyText, copyMarkdown] = shadow.querySelectorAll('button');
-    copyText.onclick = () => { navigator.clipboard.writeText(`${title}\n  ${url}`) };
-    copyMarkdown.onclick = () => { navigator.clipboard.writeText(`[${title}](${url})`) };
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    [
+      { label: "copy text", text: `${title}\n  ${url}` },
+      { label: "copy markdown", text: `[${title}](${url})` }
+    ].forEach((spec) => {
+      const btn = document.createElement('button');
+      btn.textContent = spec.label;
+      btn.onclick = async () => {
+        try {
+          await navigator.clipboard.writeText(spec.text);
+          pagemeta.hidePopover();
+        } catch {
+          btn.textContent = "copy failed";
+          setTimeout(() => { btn.textContent = spec.label; }, 1200);
+        }
+      };
+      actions.append(btn);
+    });
+
+    shadow.append(actions);
   }
 
-  document.body.appendChild(pagemeta);
+  pagemeta.addEventListener('toggle', (e) => {
+    if (e.newState === 'closed') pagemeta.remove();
+  });
+
+  document.body.append(pagemeta);
   pagemeta.showPopover();
 })();
